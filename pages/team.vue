@@ -44,7 +44,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Team - TSG LIVE! 9 CTF',
+			title: 'Team - Sig Beginners CTF 2023',
 		};
 	},
 };

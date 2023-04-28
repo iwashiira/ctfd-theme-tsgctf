@@ -28,7 +28,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Notifications - TSG LIVE! 9 CTF',
+			title: 'Notifications - Sig Beginners CTF 2023',
 		};
 	},
 };

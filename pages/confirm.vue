@@ -43,7 +43,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Confirmation Step - TSG LIVE! 9 CTF',
+			title: 'Confirmation Step - Sig Beginners CTF 2023',
 		};
 	},
 };

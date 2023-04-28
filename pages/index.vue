@@ -1,7 +1,7 @@
 <template>
 	<section class="Index">
 		<div class="index-content">
-			<h1 class="ctf-logo">TSG LIVE! 9 CTF</h1>
+			<h1 class="ctf-logo">Sig Beginners CTF 2023</h1>
 			<p class="subtitle">Pwn, Rev, Web, Crypto, etc...</p>
 			<div class="timer">{{timer}}</div>
 			<div v-if="!isLoggedIn" class="buttons">
@@ -16,8 +16,8 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2022-11-19T15:33:00+0900').getTime();
-const contestEnd = new Date('2022-11-19T17:13:00+0900').getTime();
+const contestStart = new Date('2023-04-29T13:00:00+0900').getTime();
+const contestEnd = new Date('2023-08-31T13:00:00+0900').getTime();
 
 export default {
 	components: {IsoLink},
@@ -60,7 +60,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG LIVE! 9 CTF',
+			title: 'Sig Beginners CTF 2023',
 		};
 	},
 };

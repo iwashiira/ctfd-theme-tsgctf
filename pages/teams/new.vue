@@ -65,7 +65,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Create Team - TSG LIVE! 9 CTF',
+			title: 'Create Team - Sig Beginners CTF 2023',
 		};
 	},
 };

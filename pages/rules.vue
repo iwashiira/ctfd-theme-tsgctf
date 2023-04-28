@@ -20,7 +20,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Rules - TSG LIVE! 9 CTF',
+			title: 'Rules - Sig Beginners CTF 2023',
 		};
 	},
 };

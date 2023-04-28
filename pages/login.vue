@@ -75,7 +75,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Login - TSG LIVE! 9 CTF',
+			title: 'Login - Sig Beginners CTF 2023',
 		};
 	},
 };
