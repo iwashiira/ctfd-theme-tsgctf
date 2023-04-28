@@ -18,11 +18,9 @@
 		</p>
 		<p>Below is the full list of TSG members who contributed to this CTF in success. So many thanks!!</p>
 		<ul>
-			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener">@hakatashi</a></li>
-			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
-			<li><a href="https://twitter.com/smallkirby_" target="_blank" rel="noopener">@smallkirby_</a></li>
-			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
-			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
+			<li><a href="https://twitter.com/iwashiira" target="_blank" rel="noopener">@iwashiira</a></li>
+			<li><a href="https://twitter.com/syobon_hinata" target="_blank" rel="noopener">@syobon_hinata</a></li>
+			<li><a href="https://twitter.com/peloeil" target="_blank" rel="noopener">@peloeil</a></li>
 		</ul>
 	</section>
 </template>
