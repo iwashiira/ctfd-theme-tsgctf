@@ -84,7 +84,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Register - Sig Beginners CTF 2023',
+			title: 'Register - TSG LIVE! 10 CTF',
 		};
 	},
 };

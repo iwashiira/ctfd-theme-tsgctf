@@ -65,7 +65,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Join Team - Sig Beginners CTF 2023',
+			title: 'Join Team - TSG LIVE! 10 CTF',
 		};
 	},
 };

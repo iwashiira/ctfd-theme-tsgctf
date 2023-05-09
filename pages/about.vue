@@ -13,7 +13,7 @@
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
-			Sig Beginners CTF 2023 is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
+			TSG LIVE! 10 CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
 		<p>Below is the full list of TSG members who contributed to this CTF in success. So many thanks!!</p>
@@ -32,7 +32,7 @@ export default {
 	components: {Timeline},
 	head() {
 		return {
-			title: 'About - Sig Beginners CTF 2023',
+			title: 'About - TSG LIVE! 10 CTF',
 		};
 	},
 };

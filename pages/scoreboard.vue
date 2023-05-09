@@ -67,7 +67,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Scoreboard - Sig Beginners CTF 2023',
+			title: 'Scoreboard - TSG LIVE! 10 CTF',
 		};
 	},
 };

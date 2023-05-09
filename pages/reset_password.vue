@@ -30,7 +30,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Reset Password - Sig Beginners CTF 2023',
+			title: 'Reset Password - TSG LIVE! 10 CTF',
 		};
 	},
 };

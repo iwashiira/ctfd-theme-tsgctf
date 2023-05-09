@@ -350,7 +350,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Settings - Sig Beginners CTF 2023',
+			title: 'Settings - TSG LIVE! 10 CTF',
 		};
 	},
 };
