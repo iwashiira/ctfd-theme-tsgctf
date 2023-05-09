@@ -130,7 +130,7 @@ export default {
 				return 'Contest has been ended';
 			}
 
-			return 'TSGCTF{......}';
+			return 'TSGLIVE{......}';
 		},
 		async onSubmitFlag(event) {
 			event.preventDefault();
