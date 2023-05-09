@@ -20,7 +20,8 @@
 		<ul>
 			<li><a href="https://twitter.com/iwashiira" target="_blank" rel="noopener">@iwashiira</a></li>
 			<li><a href="https://twitter.com/syobon_hinata" target="_blank" rel="noopener">@syobon_hinata</a></li>
-			<li><a href="https://twitter.com/peloeil" target="_blank" rel="noopener">@peloeil</a></li>
+			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
+			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
 		</ul>
 	</section>
 </template>
