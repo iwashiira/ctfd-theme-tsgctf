@@ -24,9 +24,9 @@ export default {
 				hid: 'description',
 				content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
 			},
-			{name: 'apple-mobile-web-app-title', content: 'TSG CTF 2021'},
-			{name: 'og:title', content: 'TSG CTF 2021'},
-			{name: 'og:site_name', content: 'TSG CTF 2021'},
+			{name: 'apple-mobile-web-app-title', content: 'TSG CTF 2023'},
+			{name: 'og:title', content: 'TSG CTF 2023'},
+			{name: 'og:site_name', content: 'TSG CTF 2023'},
 			{name: 'og:description', content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
 			{name: 'og:type', content: 'website'},
 			{name: 'og:url', content: 'https://score.ctf.tsg.ne.jp'},
@@ -34,7 +34,7 @@ export default {
 			{name: 'twitter:card', content: 'summary_large_image'},
 			{name: 'twitter:site', content: '@tsgctf'},
 			{name: 'twitter:site', content: '@tsgctf'},
-			{name: 'twitter:title', content: 'TSG CTF 2021'},
+			{name: 'twitter:title', content: 'TSG CTF 2023'},
 			{
 				name: 'twitter:description',
 				content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
@@ -43,13 +43,6 @@ export default {
 			{name: 'twitter:image:alt', content: 'TSG CTF'},
 		],
 		link: [{rel: 'icon', type: 'image/png', href: `${staticBase}/favicon.png`}],
-		script: [
-			{
-				src: 'https://app.chatwoot.com/packs/js/sdk.js',
-				defer: true,
-				async: true,
-			},
-		],
 	},
 
 	loading: {color: '#fff'},
@@ -79,7 +72,6 @@ export default {
 			const teams = [];
 			let page = 1;
 			while (true) {
-				console.log(`Fetching teams... (page = ${page})`);
 				const {data} = await axios.get('https://score.ctf.tsg.ne.jp/api/v1/teams', {params: {page}});
 				teams.push(...data.data);
 				if (data.meta.pagination.next === null) {
@@ -169,7 +161,7 @@ export default {
 			source: 'static/favicon.png',
 		},
 		manifest: {
-			name: 'TSG CTF 2021',
+			name: 'TSG CTF 2023',
 			short_name: 'TSG CTF',
 			start_url: 'https://score.ctf.tsg.ne.jp/?standalone=true',
 			theme_color: '#47e543',

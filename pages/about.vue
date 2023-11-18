@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T16&p1=248" target="_blank" rel="noopener noreferrer">10/02 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231104T16&p1=248" target="_blank" rel="noopener noreferrer">11/04 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211003T16&p1=248" target="_blank" rel="noopener noreferrer">10/03 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231105T16&p1=248" target="_blank" rel="noopener noreferrer">11/05 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Socials</h3>
@@ -18,7 +18,7 @@
 					width="100%"
 					height="100%"
 				>
-					<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener noreferrer">Discord</a>
+					<a href="https://discord.gg/xcZ3t9bC2A" target="_blank" rel="noopener noreferrer">Discord</a>
 				</iframe>
 			</li>
 			<li>
@@ -36,13 +36,13 @@
 			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png" :style="{maxWidth: '60rem'}">
 		</a>
 		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
-		<p>We provide security assessments and other cyber security services and have been also developing security software for client companies.</p>
-		<p>We are hiring engineers. Please contact to <a href="mailto:contact@flatt.tech">contact@flatt.tech</a> or <a href="https://flatt.tech/contact">https://flatt.tech/contact</a></p>
+		<p>We provide a variety of cyber security services, including security assessment.  We also develop and provide security software “Shisho Cloud” for client companies.</p>
+		<p>We are hiring engineers. Please see our employment page <a href="https://recruit.flatt.tech/">https://recruit.flatt.tech/</a> and contact to <a href="https://flatt.tech/contact/">https://flatt.tech/contact/</a></p>
 		<h3>Prizes</h3>
 		<ul>
-			<li>1st: 513.37 USD</li>
-			<li>2nd: 213.37 USD</li>
-			<li>3rd: 113.37 USD</li>
+			<li>1st: 1,000USD</li>
+			<li>2nd: 500 USD</li>
+			<li>3rd: 200 USD</li>
 		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
@@ -52,29 +52,14 @@
 			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2021 in success. So many thanks!!</p>
-		<ul>
-			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener noreferrer">@hakatashi</a></li>
-			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener noreferrer">@moratorium08</a></li>
-			<li><a href="https://twitter.com/smallkirby" target="_blank" rel="noopener noreferrer">@smallkirby</a></li>
-			<li><a href="https://twitter.com/m1kit" target="_blank" rel="noopener noreferrer">@m1kit</a></li>
-			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener noreferrer">@naan112358</a></li>
-			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener noreferrer">@kcz146</a></li>
-			<li><a href="https://twitter.com/__dAi00" target="_blank" rel="noopener noreferrer">@__dAi00</a></li>
-			<li><a href="https://twitter.com/y0n3uchy" target="_blank" rel="noopener noreferrer">@y0n3uchy</a></li>
-			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener noreferrer">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/ishitatsuyuki" target="_blank" rel="noopener noreferrer">@ishitatsuyuki</a></li>
-			<li><a href="https://twitter.com/iwashiira" target="_blank" rel="noopener noreferrer">@iwashiira</a></li>
-			<li><a href="https://twitter.com/shell_mug" target="_blank" rel="noopener noreferrer">@shell_mug</a></li>
-			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener noreferrer">@sitositositoo</a></li>
-			<li><a href="https://twitter.com/u6606u5e03" target="_blank" rel="noopener noreferrer">@u6606u5e03</a></li>
-			<li><a href="https://twitter.com/azaika_" target="_blank" rel="noopener noreferrer">@azaika_</a></li>
-			<li><a href="https://twitter.com/n4o847" target="_blank" rel="noopener noreferrer">@n4o847</a></li>
-			<li><a href="https://twitter.com/syobon_hinata" target="_blank" rel="noopener noreferrer">@syobon_hinata</a></li>
-			<li><a href="https://twitter.com/mistterpp" target="_blank" rel="noopener noreferrer">@mistterpp</a></li>
-			<li><a href="https://twitter.com/taiyoslime" target="_blank" rel="noopener noreferrer">@taiyoslime</a></li>
-			<li><a href="https://twitter.com/platypus999" target="_blank" rel="noopener noreferrer">@platypus999</a></li>
-			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener noreferrer">@coil_kpc</a></li>
+		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
+		<ul class="members">
+			<li v-for="member in members" :key="member" class="member">
+				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
+					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
+				</a>
+			</li>
 		</ul>
 	</section>
 </template>
@@ -87,6 +72,30 @@ export default {
 	head() {
 		return {
 			title: 'About - TSG CTF',
+		};
+	},
+	data() {
+		return {
+			members: [
+				{ url: 'https://twitter.com/hakatashi', name: '@hakatashi' },
+				{ url: 'https://twitter.com/caphosra', name: '@caphosra' },
+				{ url: 'https://twitter.com/__dAi00', name: 'dai' },
+				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
+				{ url: 'https://twitter.com/jiei_univ', name: '@jiei_univ' },
+				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
+				{ url: 'https://twitter.com/khei4444', name: '@khei4444' },
+				{ url: 'https://twitter.com/m1kit', name: '@m1kit' },
+				{ url: 'https://twitter.com/moratorium08', name: '@moratorium08' },
+				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
+				{ url: 'https://twitter.com/n4o847', name: '@n4o847' },
+				{ url: 'https://twitter.com/platypus999', name: '@platypus999' },
+				{ url: 'https://twitter.com/sasakiy84', name: '@sasakiy84' },
+				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
+				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
+				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
+				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
+				{ url: 'https://twitter.com/shion_urei', name: '@shion_urei' },
+			],
 		};
 	},
 };
@@ -151,6 +160,29 @@ export default {
 
 	a {
 		color: #90cbff;
+	}
+
+	:has(.twitter-timeline) {
+		width: 100%;
+	}
+
+	.ojigineko {
+		background: url('../static/ojigineko-white.gif');
+		background-size: cover;
+		display: inline-block;
+		width: 1rem;
+		opacity: 0;
+		transition: opacity 0.2s;
+		margin-bottom: 0;
+		margin-left: 0.2rem;
+	}
+
+	.member {
+		&:hover {
+			.ojigineko {
+				opacity: 0.3;
+			}
+		}
 	}
 }
 </style>

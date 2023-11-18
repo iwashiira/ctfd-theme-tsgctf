@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG CTF 2021</iso-link>
+				<iso-link to="/">TSG CTF 2023</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -119,7 +119,7 @@
 				<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
 					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
 				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener noreferrer">
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
@@ -128,7 +128,7 @@
 				<a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">
 					<img class="google-cloud" src="@/static/google-cloud.png" alt="flatt Security">
 				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener noreferrer">
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
@@ -172,18 +172,6 @@ export default {
 				this.isMobile = false;
 			}
 		});
-
-		if (!this.isStatic) {
-			const interval = setInterval(() => {
-				if (typeof window.chatwootSDK !== 'undefined') {
-					window.chatwootSDK.run({
-						websiteToken: '5pb6Q4vimR97abVRSqSWJJvH', // public token
-						baseUrl: 'https://app.chatwoot.com',
-					});
-					clearInterval(interval);
-				}
-			}, 1000);
-		}
 
 		if (typeof this.$OneSignal !== 'undefined') {
 			this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
@@ -232,7 +220,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background-image: url('../static/background.svg'), radial-gradient(circle, #061b07 0%, #131404 100%);
+	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #3f3f3f 100%);
 	background-color: #130414;
 	background-size: cover;
 	background-position: center;
@@ -472,9 +460,9 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: rgb(0, 150, 250);
+		color: rgb(242 250 254);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(71 229 67) 0%, rgb(252 255 68) 100%);
+		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
 		background-clip: text;
 		font-weight: 500;
 	}

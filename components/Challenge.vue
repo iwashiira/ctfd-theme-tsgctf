@@ -56,8 +56,13 @@
 								<span class="lang-name">EN</span>
 							</span>
 						</div>
-						<div v-if="author" class="author">
-							<span class="author-name">Author: {{author}}</span>
+						<div class="metainfo">
+							<div class="server-status" v-if="badgeUrl !== null">
+								<img :src="badgeUrl" />
+							</div>
+							<div v-if="author" class="author">
+								<span class="author-name">Author: {{author}}</span>
+							</div>
 						</div>
 					</div>
 					<div class="description">
@@ -128,6 +133,7 @@ export default {
 			boo: false,
 			flagText: '',
 			isSolvesOpen: false,
+			badgeUrl: null,
 		};
 	},
 	computed: {
@@ -143,9 +149,10 @@ export default {
 			return authorTag.value.split(':')[1].trim();
 		},
 	},
-	mounted() {
+	async mounted() {
 		if (!this.isStatic) {
 			this.interval = setInterval(this.updateImgSrc, 60 * 1000);
+			await this.fetchBadgeUrl();
 		}
 	},
 	destroyed() {
@@ -258,6 +265,14 @@ export default {
 				}
 			}
 		},
+		async fetchBadgeUrl() {
+			if (this.isEnded) {
+				this.badgeUrl = 'https://img.shields.io/badge/Unknown-CTF_Ended-blue'
+			} else {
+				const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
+				this.badgeUrl = data.badge_url;
+			}
+		},
 	},
 };
 </script>
@@ -313,9 +328,9 @@ export default {
 	}
 
 	.title-name {
-		color: rgb(82, 186, 255);
+		color: rgb(242 250 254);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(71 229 67) 0%, rgb(252 255 68) 100%);
+		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
 		background-clip: text;
 	}
 
@@ -632,6 +647,16 @@ export default {
 		&[disabled] {
 			cursor: default;
 			background: #888;
+		}
+	}
+
+	.metainfo {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+
+		.server-status {
+			margin-bottom: 0.2rem;
 		}
 	}
 }

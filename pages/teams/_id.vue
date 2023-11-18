@@ -3,17 +3,6 @@
 		<h2 class="title">
 			<span>{{team.name}}</span>
 		</h2>
-		<div v-if="team.oauth_id" class="verified">
-			<a
-				class="verified-badge"
-				:href="`https://ctftime.org/team/${team.oauth_id}`"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<span>Verified with CTFTime</span>
-				<check-circle :size="16"/>
-			</a>
-		</div>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
 		<div class="members-head">Members</div>
 		<div class="members">
@@ -41,8 +30,8 @@
 						<td>{{solve.challenge.category}}</td>
 						<td>{{solve.challenge.value}}</td>
 						<td>
-							<span v-if="getUser(solve.user)">
-								{{getUser(solve.user).name}}
+							<span v-if="solve.user">
+								{{solve.user.name}}
 							</span>
 							<pulse-loader v-else color="white" size="10px"/>
 						</td>
@@ -124,7 +113,7 @@ export default {
 			return;
 		}
 
-		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user), ...this.team.members]));
+		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
