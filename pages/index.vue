@@ -48,7 +48,7 @@ export default {
 			this.remainingTime = this.getRemaining();
 		}, 1000);
 	},
-	unmounted() {
+	destroyed() {
 		clearInterval(this.interval);
 	},
 	methods: {

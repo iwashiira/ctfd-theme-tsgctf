@@ -13,11 +13,6 @@ import {mapState} from 'vuex';
 
 export default {
 	components: {IsoLink},
-	data() {
-		return {
-			isError: false,
-		};
-	},
 	head() {
 		return {
 			title: 'Team - TSG LIVE! 10 CTF',

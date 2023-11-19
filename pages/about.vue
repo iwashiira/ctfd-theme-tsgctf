@@ -16,7 +16,7 @@
 			TSG LIVE! 10 CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
+		<p>Below is the full list of TSG members who contributed to this TSG LIVE! 10 CTF in success. So many thanks!!</p>
 		<ul class="members">
 			<li v-for="member in members" :key="member" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
