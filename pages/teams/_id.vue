@@ -30,8 +30,8 @@
 						<td>{{solve.challenge.category}}</td>
 						<td>{{solve.challenge.value}}</td>
 						<td>
-							<span v-if="getUser(solve.user)">
-								{{getUser(solve.user).name}}
+							<span v-if="solve.user">
+								{{solve.user.name}}
 							</span>
 							<pulse-loader v-else color="white" size="10px"/>
 						</td>
@@ -46,6 +46,7 @@
 <script>
 import {mapGetters, mapState} from 'vuex';
 import IsoTimeago from '~/components/IsoTimeago.vue';
+import CheckCircle from 'vue-material-design-icons/CheckCircle.vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 // https://stackoverflow.com/a/13627586/2864502
@@ -65,7 +66,16 @@ const formatOrdinals = (i) => {
 };
 
 export default {
-	components: {PulseLoader, IsoTimeago},
+	components: {PulseLoader, IsoTimeago, CheckCircle},
+	async asyncData(context) {
+		const [team] = await Promise.all([
+			context.store.dispatch('teams/getTeam', {...context, id: context.route.params.id}),
+			context.store.dispatch('scoreboard/updateScoreboard', context),
+		]);
+		if (team === null) {
+			context.error({statusCode: 404, message: 'Team not found'});
+		}
+	},
 	computed: {
 		team(context) {
 			return this.teams.get(parseInt(this.$route.params.id)) || {};
@@ -83,15 +93,6 @@ export default {
 			getUser: 'users/getUser',
 		}),
 	},
-	async asyncData(context) {
-		const [team] = await Promise.all([
-			context.store.dispatch('teams/getTeam', {...context, id: context.route.params.id}),
-			context.store.dispatch('scoreboard/updateScoreboard', context),
-		]);
-		if (team === null) {
-			context.error({statusCode: 404, message: 'Team not found'});
-		}
-	},
 	mounted() {
 		if (!this.isStatic && !this.isLoggedIn) {
 			this.$router.replace({
@@ -107,7 +108,7 @@ export default {
 			return;
 		}
 
-		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user), ...this.team.members]));
+		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
@@ -140,6 +141,26 @@ export default {
 			left: 0;
 			right: 0;
 			bottom: calc(100% - 0.3rem);
+		}
+	}
+
+	.verified {
+		margin: 1rem 0;
+		text-align: center;
+	}
+
+	.verified-badge {
+		display: inline-block;
+		margin: 0 auto;
+		background-color: #c31b1b;
+		color: white;
+		height: 1.5rem;
+		line-height: 1.5rem;
+		padding: 0 1rem;
+		border-radius: 0.5rem;
+
+		& > *, svg {
+			vertical-align: text-bottom;
 		}
 	}
 

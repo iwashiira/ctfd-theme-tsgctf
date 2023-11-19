@@ -1,3 +1,8 @@
+import get from 'lodash/get';
+import {Mutex} from 'async-mutex';
+
+const mutex = new Mutex();
+
 export const state = () => ({
 	scoreboard: [],
 	teams: [],
@@ -23,6 +28,7 @@ export const getters = {
 				account_id: team.id,
 				country: team.country,
 				pos: s.scoreboard.length + 1,
+				oauth_id: team.oauth_id,
 				score: 0,
 			})),
 		];
@@ -36,11 +42,20 @@ export const mutations = {
 	setTeams(s, teams) {
 		s.teams = teams;
 	},
+	pushTeams(s, teams) {
+		s.teams.push(...teams);
+	},
+	clearTeams(s) {
+		s.teams = [];
+	},
 };
 
 export const actions = {
 	async update({dispatch}, {$axios}) {
-		await Promise.all([dispatch('updateScoreboard', {$axios}), dispatch('updateTeams', {$axios})]);
+		await Promise.all([
+			dispatch('updateScoreboard', {$axios}),
+			dispatch('updateTeams', {$axios}),
+		]);
 	},
 	async updateScoreboard({commit}, {$axios}) {
 		const {data, headers} = await $axios.get('/api/v1/scoreboard');
@@ -50,12 +65,44 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	async updateTeams({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/teams');
-		if (headers['content-type'] === 'application/json') {
-			commit('setTeams', data.data);
-		} else {
-			commit('setIsLoggedIn', false, {root: true});
-		}
+	async updateTeams({commit, state: s}, {$axios}) {
+		await mutex.runExclusive(async () => {
+			const isTeamsAlreadyFetched = s.teams.length !== 0;
+
+			const teams = [];
+			let page = 1;
+			while (true) {
+				const {data, headers} = await $axios.get('/api/v1/teams', {
+					params: {page, per_page: 500},
+				});
+				if (headers['content-type'] !== 'application/json') {
+					commit('setIsLoggedIn', false, {root: true});
+					return;
+				}
+
+				const newTeams = get(data, ['data'], []);
+
+				if (isTeamsAlreadyFetched) {
+					teams.push(...newTeams);
+				} else {
+					commit('pushTeams', newTeams);
+				}
+
+				const next = get(data, ['meta', 'pagination', 'next'], null);
+				if (next === null) {
+					break;
+				}
+
+				await new Promise((resolve) => {
+					setTimeout(resolve, 500);
+				});
+
+				page++;
+			}
+
+			if (isTeamsAlreadyFetched) {
+				commit('setTeams', teams);
+			}
+		});
 	},
 };

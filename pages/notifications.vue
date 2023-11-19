@@ -1,10 +1,23 @@
 <template>
 	<section class="Notifications">
 		<h2 class="title"><span>Notifications</span></h2>
-		<div v-for="notification in notifications" :key="notification.id" class="notification">
+		<div class="lang-switcher">
+			<span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
+				<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
+				<span class="lang-name">JA</span>
+			</span> /
+			<span class="lang" :class="{active: language === 'en'}" @click="$store.commit('setLanguage', 'en')">
+				<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
+				<span class="lang-name">EN</span>
+			</span>
+		</div>
+		<div v-for="notification, i in notifications" :key="notification.id" class="notification">
+			<hr v-if="i !== 0">
 			<div class="title">{{notification.title}}</div>
-			<div class="content">{{notification.content}}</div>
-			<iso-timeago class="date" :datetime="notification.date" :auto-update="60"/>
+			<div class="date">
+				<iso-timeago :datetime="notification.date" :auto-update="60"/>
+			</div>
+			<div class="content">{{getContent(notification)}}</div>
 		</div>
 		<div v-if="notifications.length === 0" class="no-notification">
 			No notifications yet!
@@ -14,15 +27,11 @@
 
 <script>
 import IsoTimeago from '~/components/IsoTimeago.vue';
-import {mapGetters} from 'vuex';
+import {mapGetters, mapState} from 'vuex';
+import BellRing from 'vue-material-design-icons/BellRing.vue';
 
 export default {
-	components: {IsoTimeago},
-	computed: {
-		...mapGetters({
-			notifications: 'notifications/getNotifications',
-		}),
-	},
+	components: {IsoTimeago, BellRing},
 	async asyncData(context) {
 		await context.store.dispatch('notifications/updateNotifications', context);
 	},
@@ -31,39 +40,81 @@ export default {
 			title: 'Notifications - TSG LIVE! 10 CTF',
 		};
 	},
+	computed: {
+		...mapGetters({
+			notifications: 'notifications/getNotifications',
+		}),
+		...mapState(['language']),
+	},
+	methods: {
+		getContent(notification) {
+			const sections = notification.content.split(/^---$/m);
+			if (sections.length < 2 || this.language !== 'ja') {
+				return sections[0].trim();
+			}
+			return sections[1].trim();
+		},
+		async enableNotifications() {
+			await this.$OneSignal.showNativePrompt();
+			this.$store.commit('setIsPushEnabled', true);
+		},
+	},
 };
 </script>
 
 <style lang="postcss">
 .Notifications {
-	& > .title {
+	.lang-switcher {
+		text-align: center;
 		margin-bottom: 5rem;
+		font-size: 1.5rem;
+
+		.lang {
+			display: inline-block;
+			cursor: pointer;
+
+			&.active {
+				border-bottom: 1.5px white solid;
+			}
+		}
+
+		img, .lang-name {
+			vertical-align: middle;
+		}
 	}
 
 	.notification {
 		width: 100%;
 		max-width: 50rem;
-		background: rgba(255, 255, 255, 0.2);
-		box-shadow: 0 0 8px black;
 		position: relative;
 		color: white;
 		margin: 1rem auto;
-		padding: 0.8rem 10rem 1rem 1rem;
 		box-sizing: border-box;
 		border-radius: 3px;
 
 		.title {
+			font-family: 'Fredoka One', cursive;
+			font-weight: 300;
 			font-size: 2rem;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-top: 3rem;
+			word-break: break-word;
+			text-align: center;
 		}
 
 		.date {
-			position: absolute;
-			bottom: 1rem;
-			right: 1rem;
+			text-align: center;
+			font-size: 1rem;
+			margin-bottom: 1rem;
 		}
 
 		.content {
 			white-space: pre-line;
+			font-size: 1.5rem;
+			font-family: 'Roboto';
+			text-align: justify;
 		}
 	}
 

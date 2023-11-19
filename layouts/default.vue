@@ -19,14 +19,28 @@
 							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
 							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
 							<iso-link to="/challenges" class="dropdown-menu-item">Challenges</iso-link>
-							<iso-link v-if="!isStatic" :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
-							<iso-link v-if="!isStatic" to="/settings" class="dropdown-menu-item">Settings</iso-link>
+							<iso-link
+								v-if="!isStatic"
+								:to="isInTeam ? `/teams/${team && team.id}` : '/team'"
+								class="dropdown-menu-item"
+							>
+								Team
+							</iso-link>
+							<iso-link
+								v-if="!isStatic"
+								to="/settings"
+								class="dropdown-menu-item"
+							>
+								Settings
+							</iso-link>
 							<a
 								v-if="!isStatic"
 								href="/logout"
 								class="dropdown-menu-item"
 								@click="logout"
-							>Logout</a>
+							>
+								Logout
+							</a>
 						</div>
 					</div>
 				</div>
@@ -120,6 +134,11 @@ export default {
 			isMobile: false,
 		};
 	},
+	head() {
+		return {
+			title: 'TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['isStatic', 'isLoggedIn', 'isInTeam', 'team', 'user']),
 	},
@@ -135,6 +154,24 @@ export default {
 				this.isMobile = false;
 			}
 		});
+
+		if (typeof this.$OneSignal !== 'undefined') {
+			this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
+				this.$store.commit('setIsPushEnabled', isEnabled);
+			});
+		}
+
+		if (typeof globalThis.OneSignal !== 'undefined') {
+			globalThis.OneSignal.getNotificationPermission().then((permission) => {
+				if (permission === 'granted') {
+					this.$store.commit('setIsPushEnabled', true);
+				}
+			});
+		}
+
+		if (navigator.language.includes('ja')) {
+			this.$store.commit('setLanguage', 'ja');
+		}
 	},
 	methods: {
 		onClickaway() {
@@ -149,11 +186,6 @@ export default {
 			event.preventDefault();
 			location.href = '/logout';
 		},
-	},
-	head() {
-		return {
-			title: 'TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>
@@ -170,7 +202,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background-image: url('../static/background.svg'), radial-gradient(circle, #06151b 0%, #040414 100%);
+	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #3f3f3f 100%);
 	background-color: #130414;
 	background-size: cover;
 	background-position: center;
@@ -200,6 +232,7 @@ select {
 	padding: 0 1rem;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.4rem;
+	font-weight: bold;
 	height: 1.7em;
 }
 
@@ -242,7 +275,7 @@ button {
 	cursor: pointer;
 }
 
-button[type='submit'] {
+button[type='submit'], .button-style {
 	width: 6rem;
 	height: 2.5rem;
 	border-radius: 9999px;
@@ -274,6 +307,16 @@ tr {
 
 tbody tr {
 	border-top: rgba(255, 255, 255, 0.7) 1px solid;
+}
+
+hr {
+	margin: 5rem auto;
+	height: 3px;
+	width: 20rem;
+	background: white;
+	border: none;
+	border-radius: 9999px;
+	opacity: 0.5;
 }
 
 *,
@@ -399,9 +442,9 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: rgb(0, 150, 250);
+		color: rgb(242 250 254);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(151, 77, 255) 0%, rgb(41, 210, 119) 100%);
+		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
 		background-clip: text;
 		font-weight: 500;
 	}
@@ -427,8 +470,8 @@ section > h2.title {
 		color: #90cbff;
 	}
 
-	.flatt-line {
-		line-height: 3.5rem;
+	.sponsor-line {
+		line-height: 3rem;
 
 		&::before {
 			content: '';
@@ -443,6 +486,11 @@ section > h2.title {
 		width: 18rem;
 	}
 
+	.google-cloud {
+		vertical-align: middle;
+		width: 2rem;
+	}
+
 	.ojigineko {
 		background: url('../static/ojigineko-white.gif');
 		background-size: cover;
@@ -454,7 +502,7 @@ section > h2.title {
 		transition: opacity 0.2s;
 	}
 
-	.flatt-line:hover .ojigineko {
+	.sponsor-line:hover .ojigineko {
 		opacity: 0.3;
 	}
 }

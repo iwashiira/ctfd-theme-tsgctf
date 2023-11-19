@@ -248,6 +248,9 @@ import {mapState} from 'vuex';
 
 export default {
 	components: {PulseLoader},
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			userForm: {
@@ -285,9 +288,6 @@ export default {
 		team(newValue) {
 			Object.assign(this.teamForm, newValue);
 		},
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (!this.isLoggedIn) {

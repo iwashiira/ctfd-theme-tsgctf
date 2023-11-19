@@ -10,7 +10,9 @@ const isStatic = process.env.NUXT_ENV_STATIC === 'true';
 const staticBase = (process.env.NODE_ENV === 'development' || isStatic) ? '' : '/themes/tsgctf/static';
 
 export default {
-	mode: isStatic ? 'universal' : 'spa',
+	ssr: isStatic,
+
+	target: 'static',
 
 	head: {
 		title: 'TSG LIVE! 10 CTF',
@@ -66,8 +68,17 @@ export default {
 			if (!isStatic) {
 				return [];
 			}
-			const {data} = await axios.get('https://live-ctf.tsg.ne.jp/api/v1/teams');
-			return data.data.map(({id}) => `/teams/${id}`);
+			const teams = [];
+			let page = 1;
+			while (true) {
+				const {data} = await axios.get('https://live-ctf.tsg.ne.jp/api/v1/teams', {params: {page}});
+				teams.push(...data.data);
+				if (data.meta.pagination.next === null) {
+					break;
+				}
+				page++;
+			}
+			return teams.map(({id}) => `/teams/${id}`);
 		},
 		concurrency: 5,
 	},
@@ -109,6 +120,10 @@ export default {
 		...(process.env.NODE_ENV === 'development'
 			? [
 				{
+					path: '/oauth',
+					handler: proxy,
+				},
+				{
 					path: '/api',
 					handler: proxy,
 				},
@@ -138,5 +153,18 @@ export default {
 
 	env: {
 		session: process.env.SESSION || '',
+	},
+
+	pwa: {
+		icon: {
+			source: 'static/favicon.png',
+		},
+		manifest: {
+			name: 'TSG LIVE! 10 CTF',
+			short_name: 'TSG LIVE! 10 CTF',
+			start_url: 'https://live-ctf.tsg.ne.jp/?standalone=true',
+			theme_color: '#47e543',
+			lang: 'en',
+		},
 	},
 };

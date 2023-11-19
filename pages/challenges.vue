@@ -11,7 +11,7 @@
 				<h3 class="category-name">{{category.name}}</h3>
 				<ul class="challenges">
 					<challenge
-						v-for="challenge in category.challenges.filter(({solved}) => !isHideSolved || !solved)"
+						v-for="challenge in category.challenges.filter(({solved_by_me}) => !isHideSolved || !solved_by_me)"
 						:key="challenge.id"
 						:challenge="challenge"
 					/>
@@ -26,7 +26,7 @@
 					v-if="melody === 0"
 					href="https://www.youtube.com/watch?v=d_T1StgldnM"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the aesthetic Iwashi melody
 				</a>
@@ -34,7 +34,7 @@
 					v-if="melody === 1"
 					href="https://www.youtube.com/watch?v=ceyr4ezheOg"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the comfortable Maguro melody
 				</a>
@@ -42,7 +42,7 @@
 					v-if="melody === 2"
 					href="https://www.youtube.com/watch?v=C9PFVo1FEwU"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the cozy Yatsume melody
 				</a>
@@ -50,7 +50,7 @@
 					v-if="melody === 3"
 					href="https://www.youtube.com/watch?v=ok7UX3utzvI"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the intoxicant Kurage melody
 				</a>
@@ -66,6 +66,12 @@ import Challenge from '~/components/Challenge.vue';
 
 export default {
 	components: {Challenge},
+	async asyncData(context) {
+		await Promise.all([
+			context.store.dispatch('updateDates', context),
+			context.store.dispatch('challenges/updateChallenges', context),
+		]);
+	},
 	data() {
 		return {
 			melody: 0,
@@ -95,13 +101,6 @@ export default {
 			}
 		},
 	},
-	async asyncData(context) {
-		await Promise.all([
-			context.store.dispatch('updateDates', context),
-			context.store.dispatch('challenges/updateChallenges', context),
-			context.store.dispatch('challenges/updateChallengeSolves', context),
-		]);
-	},
 	mounted() {
 		if (!this.isStatic && !this.isVerified) {
 			this.$router.replace({
@@ -128,7 +127,6 @@ export default {
 			this.interval = setInterval(() => {
 				this.$store.dispatch('updateDates', {$axios: this.$axios});
 				this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
-				this.$store.dispatch('challenges/updateChallengeSolves', {$axios: this.$axios});
 			}, 60 * 1000);
 		}
 	},

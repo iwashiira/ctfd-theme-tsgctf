@@ -1,10 +1,12 @@
 <template>
 	<section class="Rules">
 		<h2 class="title"><span>Rules</span></h2>
+		<!-- eslint-disable vue/no-v-html -->
 		<div
 			class="description"
 			v-html="$md.render(rules)"
 		/>
+		<!-- eslint-enable vue/no-v-html -->
 	</section>
 </template>
 
@@ -15,13 +17,13 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('updateRules', context);
 	},
-	computed: {
-		...mapState(['rules']),
-	},
 	head() {
 		return {
 			title: 'Rules - TSG LIVE! 10 CTF',
 		};
+	},
+	computed: {
+		...mapState(['rules']),
 	},
 };
 </script>

@@ -9,6 +9,9 @@
 import {mapState} from 'vuex';
 
 export default {
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			isError: false,
@@ -16,9 +19,6 @@ export default {
 	},
 	computed: {
 		...mapState(['isLoggedIn', 'csrfToken']),
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (document.referrer) {

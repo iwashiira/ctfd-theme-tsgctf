@@ -3,26 +3,27 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1433&p1=248" target="_blank" rel="noopener">5/13 13:03</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231104T16&p1=248" target="_blank" rel="noopener noreferrer">11/04 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1613&p1=248" target="_blank" rel="noopener">5/13 14:43</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231105T16&p1=248" target="_blank" rel="noopener noreferrer">11/05 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>
-		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
+		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
-			TSG LIVE! 10 CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
+			TSG LIVE! 10 CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this CTF in success. So many thanks!!</p>
-		<ul>
-			<li><a href="https://twitter.com/iwashiira" target="_blank" rel="noopener">@iwashiira</a></li>
-			<li><a href="https://twitter.com/syobon_hinata" target="_blank" rel="noopener">@syobon_hinata</a></li>
-			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
-			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
+		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
+		<ul class="members">
+			<li v-for="member in members" :key="member" class="member">
+				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
+					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
+				</a>
+			</li>
 		</ul>
 	</section>
 </template>
@@ -35,6 +36,30 @@ export default {
 	head() {
 		return {
 			title: 'About - TSG LIVE! 10 CTF',
+		};
+	},
+	data() {
+		return {
+			members: [
+				{ url: 'https://twitter.com/hakatashi', name: '@hakatashi' },
+				{ url: 'https://twitter.com/caphosra', name: '@caphosra' },
+				{ url: 'https://twitter.com/__dAi00', name: 'dai' },
+				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
+				{ url: 'https://twitter.com/jiei_univ', name: '@jiei_univ' },
+				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
+				{ url: 'https://twitter.com/khei4444', name: '@khei4444' },
+				{ url: 'https://twitter.com/m1kit', name: '@m1kit' },
+				{ url: 'https://twitter.com/moratorium08', name: '@moratorium08' },
+				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
+				{ url: 'https://twitter.com/n4o847', name: '@n4o847' },
+				{ url: 'https://twitter.com/platypus999', name: '@platypus999' },
+				{ url: 'https://twitter.com/sasakiy84', name: '@sasakiy84' },
+				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
+				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
+				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
+				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
+				{ url: 'https://twitter.com/shion_urei', name: '@shion_urei' },
+			],
 		};
 	},
 };
@@ -99,6 +124,29 @@ export default {
 
 	a {
 		color: #90cbff;
+	}
+
+	:has(.twitter-timeline) {
+		width: 100%;
+	}
+
+	.ojigineko {
+		background: url('../static/ojigineko-white.gif');
+		background-size: cover;
+		display: inline-block;
+		width: 1rem;
+		opacity: 0;
+		transition: opacity 0.2s;
+		margin-bottom: 0;
+		margin-left: 0.2rem;
+	}
+
+	.member {
+		&:hover {
+			.ojigineko {
+				opacity: 0.3;
+			}
+		}
 	}
 }
 </style>

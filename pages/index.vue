@@ -83,9 +83,20 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
 		font-weight: 300;
-		color: rgb(0, 150, 250);
+		color: rgb(242 250 254);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(151, 77, 255) 0%, rgb(41, 210, 119) 100%);
+		animation: 10s blinkLogo infinite;
+		animation-timing-function: step-end;
+		text-shadow:
+			0 0 3px var(--shadow-color),
+			0 0 10px var(--shadow-color),
+			0 0 20px var(--shadow-color),
+			0 0 30px var(--shadow-color),
+			0 0 40px var(--shadow-color),
+			0 0 50px var(--shadow-color),
+			0 0 70px var(--shadow-color),
+			0 0 100px var(--shadow-color);
+		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
