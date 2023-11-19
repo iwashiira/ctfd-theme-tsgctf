@@ -16,8 +16,8 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2023-11-20T00:03:00+0900').getTime();
-const contestEnd = new Date('2023-11-20T14:43:00+0900').getTime();
+const contestStart = new Date('2023-11-19T15:03:00z').getTime();
+const contestEnd = new Date('2023-11-20T05:43:00z').getTime();
 
 export default {
 	components: {IsoLink},
