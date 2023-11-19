@@ -62,6 +62,11 @@ export default {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Login - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'csrfToken']),
 	},
@@ -72,11 +77,6 @@ export default {
 				this.isError = true;
 			}
 		}
-	},
-	head() {
-		return {
-			title: 'Login - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

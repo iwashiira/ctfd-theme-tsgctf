@@ -17,6 +17,11 @@ export default {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Reset Password - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'csrfToken']),
 	},
@@ -27,11 +32,6 @@ export default {
 				this.isError = true;
 			}
 		}
-	},
-	head() {
-		return {
-			title: 'Reset Password - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

@@ -78,6 +78,11 @@ export default {
 			isHideSolved: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Challenges - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapGetters({
 			categories: 'challenges/getCategories',
@@ -132,11 +137,6 @@ export default {
 	},
 	unmounted() {
 		clearInterval(this.interval);
-	},
-	head() {
-		return {
-			title: 'Challenges - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

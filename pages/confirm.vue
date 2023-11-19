@@ -24,6 +24,11 @@ export default {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Confirmation Step - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'isVerified', 'csrfToken']),
 	},
@@ -40,11 +45,6 @@ export default {
 				this.isError = true;
 			}
 		}
-	},
-	head() {
-		return {
-			title: 'Confirmation Step - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

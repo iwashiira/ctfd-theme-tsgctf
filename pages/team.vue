@@ -18,6 +18,11 @@ export default {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Team - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['isInTeam', 'isVerified', 'isLoggedIn', 'team']),
 	},
@@ -41,11 +46,6 @@ export default {
 				path: `/teams/${this.team.id}`,
 			});
 		}
-	},
-	head() {
-		return {
-			title: 'Team - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

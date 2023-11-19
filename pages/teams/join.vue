@@ -52,6 +52,11 @@ export default {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Join Team - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['csrfToken']),
 	},
@@ -62,11 +67,6 @@ export default {
 				this.isError = true;
 			}
 		}
-	},
-	head() {
-		return {
-			title: 'Join Team - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

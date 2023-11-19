@@ -16,14 +16,19 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2023-05-13T13:03:00+0900').getTime();
-const contestEnd = new Date('2023-05-13T14:43:00+0900').getTime();
+const contestStart = new Date('2023-11-20T00:03:00+0900').getTime();
+const contestEnd = new Date('2023-11-20T14:43:00+0900').getTime();
 
 export default {
 	components: {IsoLink},
 	data() {
 		return {
 			remainingTime: this.getRemaining(),
+		};
+	},
+	head() {
+		return {
+			title: 'TSG LIVE! 10 CTF',
 		};
 	},
 	computed: {
@@ -57,11 +62,6 @@ export default {
 			}
 			return contestStart - now;
 		},
-	},
-	head() {
-		return {
-			title: 'TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

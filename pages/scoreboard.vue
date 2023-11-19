@@ -39,6 +39,11 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/update', context);
 	},
+	head() {
+		return {
+			title: 'Scoreboard - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapGetters({
 			scoreboard: 'scoreboard/getScoreboard',
@@ -68,11 +73,6 @@ export default {
 				backgroundImage: `url(https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg)`,
 			};
 		},
-	},
-	head() {
-		return {
-			title: 'Scoreboard - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>

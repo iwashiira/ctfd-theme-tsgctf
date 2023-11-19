@@ -76,6 +76,11 @@ export default {
 			context.error({statusCode: 404, message: 'Team not found'});
 		}
 	},
+	head() {
+		return {
+			title: `Team ${this.team && this.team.name} - TSG LIVE! 10 CTF`,
+		};
+	},
 	computed: {
 		team(context) {
 			return this.teams.get(parseInt(this.$route.params.id)) || {};
@@ -112,11 +117,6 @@ export default {
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
-	head() {
-		return {
-			title: `Team ${this.team && this.team.name} - TSG LIVE! 10 CTF`,
-		};
-	},
 };
 </script>
 

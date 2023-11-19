@@ -278,6 +278,11 @@ export default {
 			},
 		};
 	},
+	head() {
+		return {
+			title: 'Settings - TSG LIVE! 10 CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'isInTeam', 'csrfToken', 'user', 'team', 'countries']),
 	},
@@ -347,11 +352,6 @@ export default {
 				this.teamForm.errors = flatten(Object.values(data.errors));
 			}
 		},
-	},
-	head() {
-		return {
-			title: 'Settings - TSG LIVE! 10 CTF',
-		};
 	},
 };
 </script>
