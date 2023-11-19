@@ -57,9 +57,6 @@
 							</span>
 						</div>
 						<div class="metainfo">
-							<div class="server-status" v-if="badgeUrl !== null">
-								<img :src="badgeUrl" />
-							</div>
 							<div v-if="author" class="author">
 								<span class="author-name">Author: {{author}}</span>
 							</div>
@@ -133,7 +130,6 @@ export default {
 			boo: false,
 			flagText: '',
 			isSolvesOpen: false,
-			badgeUrl: null,
 		};
 	},
 	computed: {
@@ -149,10 +145,9 @@ export default {
 			return authorTag.value.split(':')[1].trim();
 		},
 	},
-	async mounted() {
+	mounted() {
 		if (!this.isStatic) {
 			this.interval = setInterval(this.updateImgSrc, 60 * 1000);
-			await this.fetchBadgeUrl();
 		}
 	},
 	destroyed() {
@@ -252,25 +247,6 @@ export default {
 				await this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
 			} else {
 				this.boo = true;
-			}
-		},
-		updateImgSrc() {
-			if (this.$refs.description) {
-				const imgs = Array.from(this.$refs.description.querySelectorAll('img'));
-				const timestamp = Date.now();
-				for (const img of imgs) {
-					const srcUrl = new URL(img.src);
-					srcUrl.searchParams.set('ts', timestamp.toString());
-					img.src = srcUrl.toString();
-				}
-			}
-		},
-		async fetchBadgeUrl() {
-			if (this.isEnded) {
-				this.badgeUrl = 'https://img.shields.io/badge/Unknown-CTF_Ended-blue'
-			} else {
-				const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
-				this.badgeUrl = data.badge_url;
 			}
 		},
 	},
