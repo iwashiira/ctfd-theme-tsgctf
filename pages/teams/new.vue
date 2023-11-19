@@ -52,11 +52,6 @@ export default {
 			isError: false,
 		};
 	},
-	head() {
-		return {
-			title: 'Create Team - TSG CTF',
-		};
-	},
 	computed: {
 		...mapState(['csrfToken']),
 	},

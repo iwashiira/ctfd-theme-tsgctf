@@ -202,7 +202,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #3f3f3f 100%);
+	background-image: url('../static/background.svg'), radial-gradient(circle, #06151b 0%, #040414 100%);
 	background-color: #130414;
 	background-size: cover;
 	background-position: center;
@@ -442,9 +442,9 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: rgb(242 250 254);
+		color: rgb(0 150 250);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
+		background: linear-gradient(90deg, rgb(151 77 255) 0%, rgb(41 210 119) 100%);
 		background-clip: text;
 		font-weight: 500;
 	}
