@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231120T0&p1=248" target="_blank" rel="noopener noreferrer">11/20 0:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231125T1133&p1=248" target="_blank" rel="noopener noreferrer">11/25 11:33</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231120T14&p1=248" target="_blank" rel="noopener noreferrer">11/20 14:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231125T1313&p1=248" target="_blank" rel="noopener noreferrer">11/25 13:13</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>
@@ -42,23 +42,11 @@ export default {
 		return {
 			members: [
 				{ url: 'https://twitter.com/hakatashi', name: '@hakatashi' },
-				{ url: 'https://twitter.com/caphosra', name: '@caphosra' },
-				{ url: 'https://twitter.com/__dAi00', name: 'dai' },
 				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
-				{ url: 'https://twitter.com/jiei_univ', name: '@jiei_univ' },
 				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
-				{ url: 'https://twitter.com/khei4444', name: '@khei4444' },
-				{ url: 'https://twitter.com/m1kit', name: '@m1kit' },
 				{ url: 'https://twitter.com/moratorium08', name: '@moratorium08' },
 				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
-				{ url: 'https://twitter.com/n4o847', name: '@n4o847' },
-				{ url: 'https://twitter.com/platypus999', name: '@platypus999' },
-				{ url: 'https://twitter.com/sasakiy84', name: '@sasakiy84' },
-				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
 				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
-				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
-				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
-				{ url: 'https://twitter.com/shion_urei', name: '@shion_urei' },
 			],
 		};
 	},
