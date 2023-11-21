@@ -15,31 +15,31 @@ export default {
 	target: 'static',
 
 	head: {
-		title: 'TSG LIVE! 10 CTF',
+		title: 'TSG LIVE! 11 CTF',
 		meta: [
 			{charset: 'utf-8'},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
 			{
 				name: 'description',
 				hid: 'description',
-				content: 'TSG LIVE! 10 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+				content: 'TSG LIVE! 11 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
 			},
-			{name: 'apple-mobile-web-app-title', content: 'TSG LIVE! 10 CTF'},
-			{name: 'og:title', content: 'TSG LIVE! 10 CTF'},
-			{name: 'og:site_name', content: 'TSG LIVE! 10 CTF'},
-			{name: 'og:description', content: 'TSG LIVE! 10 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
+			{name: 'apple-mobile-web-app-title', content: 'TSG LIVE! 11 CTF'},
+			{name: 'og:title', content: 'TSG LIVE! 11 CTF'},
+			{name: 'og:site_name', content: 'TSG LIVE! 11 CTF'},
+			{name: 'og:description', content: 'TSG LIVE! 11 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
 			{name: 'og:type', content: 'website'},
-			{name: 'og:url', content: 'https://live-ctf.tsg.ne.jp'},
+			{name: 'og:url', content: 'https://score.live-ctf.tsg.ne.jp'},
 			{name: 'og:image', content: `${staticBase}/ogimage.jpg`},
 			{name: 'twitter:card', content: 'summary'},
 			{name: 'twitter:site', content: '@tsg_ut'},
-			{name: 'twitter:title', content: 'TSG LIVE! 10 CTF'},
+			{name: 'twitter:title', content: 'TSG LIVE! 11 CTF'},
 			{
 				name: 'twitter:description',
-				content: 'TSG LIVE! 10 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+				content: 'TSG LIVE! 11 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
 			},
 			{name: 'twitter:image', content: `${staticBase}/ogimage.jpg`},
-			{name: 'twitter:image:alt', content: 'TSG LIVE! 10 CTF'},
+			{name: 'twitter:image:alt', content: 'TSG LIVE! 11 CTF'},
 		],
 		link: [{rel: 'icon', type: 'image/png', href: `${staticBase}/favicon.png`}],
 	},
@@ -71,7 +71,7 @@ export default {
 			const teams = [];
 			let page = 1;
 			while (true) {
-				const {data} = await axios.get('https://live-ctf.tsg.ne.jp/api/v1/teams', {params: {page}});
+				const {data} = await axios.get('https://score.live-ctf.tsg.ne.jp/api/v1/teams', {params: {page}});
 				teams.push(...data.data);
 				if (data.meta.pagination.next === null) {
 					break;
@@ -84,7 +84,7 @@ export default {
 	},
 
 	axios: {
-		baseURL: 'https://live-ctf.tsg.ne.jp/',
+		baseURL: 'https://score.live-ctf.tsg.ne.jp/',
 		browserBaseURL: '/',
 	},
 
@@ -160,9 +160,9 @@ export default {
 			source: 'static/favicon.png',
 		},
 		manifest: {
-			name: 'TSG LIVE! 10 CTF',
-			short_name: 'TSG LIVE! 10 CTF',
-			start_url: 'https://live-ctf.tsg.ne.jp/?standalone=true',
+			name: 'TSG LIVE! 11 CTF',
+			short_name: 'TSG LIVE! 11 CTF',
+			start_url: 'https://score.live-ctf.tsg.ne.jp/?standalone=true',
 			theme_color: '#47e543',
 			lang: 'en',
 		},

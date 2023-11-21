@@ -37,7 +37,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Notifications - TSG LIVE! 10 CTF',
+			title: 'Notifications - TSG LIVE! 11 CTF',
 		};
 	},
 	computed: {

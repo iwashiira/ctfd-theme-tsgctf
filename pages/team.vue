@@ -15,7 +15,7 @@ export default {
 	components: {IsoLink},
 	head() {
 		return {
-			title: 'Team - TSG LIVE! 10 CTF',
+			title: 'Team - TSG LIVE! 11 CTF',
 		};
 	},
 	computed: {
