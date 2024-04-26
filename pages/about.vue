@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231125T1133&p1=248" target="_blank" rel="noopener noreferrer">11/25 11:33</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20240429T2000&p1=248" target="_blank" rel="noopener noreferrer">04/29 20:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231125T1333&p1=248" target="_blank" rel="noopener noreferrer">11/25 13:33</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20250428T2000&p1=248" target="_blank" rel="noopener noreferrer">04/28 20:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>
@@ -41,12 +41,8 @@ export default {
 	data() {
 		return {
 			members: [
-				{ url: 'https://twitter.com/hakatashi', name: '@hakatashi' },
+				{ url: 'https://twitter.com/lluuiiggeeinfo', name: '@LLUUIIGGEE' },
 				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
-				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
-				{ url: 'https://twitter.com/moratorium08', name: '@moratorium08' },
-				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
-				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
 			],
 		};
 	},
