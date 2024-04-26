@@ -64,7 +64,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Login - TSG LIVE! 11 CTF',
+			title: 'Login - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {

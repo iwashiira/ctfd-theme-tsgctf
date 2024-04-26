@@ -54,7 +54,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Join Team - TSG LIVE! 11 CTF',
+			title: 'Join Team - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {

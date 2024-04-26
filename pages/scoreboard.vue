@@ -41,7 +41,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Scoreboard - TSG LIVE! 11 CTF',
+			title: 'Scoreboard - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {

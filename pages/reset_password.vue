@@ -19,7 +19,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Reset Password - TSG LIVE! 11 CTF',
+			title: 'Reset Password - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {

@@ -19,7 +19,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Rules - TSG LIVE! 11 CTF',
+			title: 'Rules - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {

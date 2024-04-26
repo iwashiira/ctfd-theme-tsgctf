@@ -280,7 +280,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Settings - TSG LIVE! 11 CTF',
+			title: 'Settings - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {

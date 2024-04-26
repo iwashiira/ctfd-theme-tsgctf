@@ -73,7 +73,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Register - TSG LIVE! 11 CTF',
+			title: 'Register - Sig XXX Pwn XXX',
 		};
 	},
 	computed: {
