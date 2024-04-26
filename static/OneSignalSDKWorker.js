@@ -1,1 +1,1 @@
-importScripts('/themes/tsgctf/static/sw.js?1700845696173', 'https://cdn.onesignal.com/sdks/OneSignalSDK.js')
+importScripts('/themes/tsgctf/static/sw.js?1714147970962', 'https://cdn.onesignal.com/sdks/OneSignalSDK.js')
