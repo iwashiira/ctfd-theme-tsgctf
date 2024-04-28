@@ -3,7 +3,7 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20240429T2000&p1=248" target="_blank" rel="noopener noreferrer">04/29 20:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20240429T1600&p1=248" target="_blank" rel="noopener noreferrer">04/29 16:00</a>
 			-
 			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20250428T2000&p1=248" target="_blank" rel="noopener noreferrer">04/28 20:00</a>
 		</p>
