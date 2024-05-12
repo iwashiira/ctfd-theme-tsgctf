@@ -205,7 +205,7 @@ export default {
 				return 'Contest has been ended';
 			}
 
-			return 'TSGLIVE{......}';
+			return 'TSGCTF{......}';
 		},
 		toggleSolves() {
 			if (this.isSolvesOpen) {
